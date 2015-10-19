@@ -20,6 +20,8 @@ final class DialogOptions {
 
     private int textNegativeResId = R.string.rate_dialog_no;
 
+    private boolean enforcingMaterialDialog = true;
+
     private View view;
 
     private OnClickButtonListener listener;
@@ -104,4 +106,11 @@ final class DialogOptions {
         this.listener = listener;
     }
 
+    public boolean isEnforcingMaterialDialog() {
+        return enforcingMaterialDialog;
+    }
+
+    public void setEnforcingMaterialDialog(boolean enforcingMaterialDialog) {
+        this.enforcingMaterialDialog = enforcingMaterialDialog;
+    }
 }

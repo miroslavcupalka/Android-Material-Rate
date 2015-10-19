@@ -1,8 +1,7 @@
 Android-Rate
 ============
 
-[![Build Status](https://travis-ci.org/hotchemi/Android-Rate.png?branch=master)](https://travis-ci.org/hotchemi/Android-Rate)
-[![Android Arsenal](http://img.shields.io/badge/Android%20Arsenal-Android%20Rate-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/846)
+[![Build Status](https://travis-ci.org/miroslavcupalka/Android-Material-Rate.png?branch=master)](https://travis-ci.org/miroslavcupalka/Android-Material-Rate)
 
 Android-Rate is a library to help you promote your android app by prompting users to rate the app after using it for a few days.
 
@@ -10,23 +9,23 @@ Android-Rate is a library to help you promote your android app by prompting user
 
 ## Getting Started
 
-![Maven Badges](https://maven-badges.herokuapp.com/maven-central/com.github.hotchemi/android-rate/badge.svg)
+![Maven Badges](https://maven-badges.herokuapp.com/maven-central/com.github.miroslavcupalka/android-material-rate/badge.svg)
 
 You can download from maven central.
 
 ```groovy
 dependencies {
-  compile 'com.github.hotchemi:android-rate:0.5.3'
+  compile 'com.github.miroslavcupalka:android-material-rate:0.5.5'
 }
 ```
 
 ## Sample
 
-Please try to move the [sample](https://github.com/hotchemi/Android-Rate/tree/master/sample).
+Please try to move the [sample](https://github.com/miroslavcupalka/Android-Material-Rate/tree/master/sample).
 
 ## How to use
 
-[![javadoc.io](https://javadocio-badges.herokuapp.com/com.github.hotchemi/android-rate/badge.svg)](http://www.javadoc.io/doc/com.github.hotchemi/android-rate/)
+[![javadoc.io](https://javadocio-badges.herokuapp.com/com.github.hotchemi/android-rate/badge.svg)](http://www.javadoc.io/doc/com.github.miroslavcupalka/android-material-rate/)
 
 ## Support
 
@@ -48,6 +47,7 @@ protected void onCreate(Bundle savedInstanceState) {
       .setRemindInterval(2) // default 1
       .setShowLaterButton(true) // default true
       .setDebug(false) // default false
+      .setEnforcingMaterialDialog(true) // default true
       .setOnClickButtonListener(new OnClickButtonListener() { // callback listener.
           @Override
           public void onClickButton(int which) {

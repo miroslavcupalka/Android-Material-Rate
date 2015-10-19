@@ -6,7 +6,7 @@ import android.view.View;
 
 import java.util.Date;
 
-import static hotchemi.android.rate.DialogManager.create;
+import static hotchemi.android.rate.DialogManager.createDialog;
 import static hotchemi.android.rate.PreferenceHelper.getEventTimes;
 import static hotchemi.android.rate.PreferenceHelper.getInstallDate;
 import static hotchemi.android.rate.PreferenceHelper.getIsAgreeShowDialog;
@@ -133,6 +133,11 @@ public class AppRate {
         return this;
     }
 
+    public AppRate setEnforcingMaterialDialog(boolean enforcingMaterialDialog){
+        options.setEnforcingMaterialDialog(enforcingMaterialDialog);
+        return this;
+    }
+
     public void monitor() {
         if (isFirstLaunch(context)) {
             setInstallDate(context);
@@ -168,7 +173,7 @@ public class AppRate {
 
     public void showRateDialog(Activity activity) {
         if (!activity.isFinishing()) {
-            create(activity, options).show();
+            createDialog(activity, options).show();
         }
     }
 

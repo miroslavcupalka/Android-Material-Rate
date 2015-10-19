@@ -1,5 +1,7 @@
 # ChangeLog
-
+- 2015/10/19 0.5.5 release.
+    - Forked from http://hotchemi.github.io/Android-Rate
+    - Add `AppRate.setEnforcingMaterialDialog`.
 - 2015/10/12 0.5.4 release.
     - Add `AppRate.setAgreeShowDialog`.
 - 2015/08/11 0.5.3 release.

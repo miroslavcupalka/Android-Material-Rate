@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.view.View;
 
+import com.afollestad.materialdialogs.MaterialDialog;
+
 import static hotchemi.android.rate.IntentHelper.createIntentForGooglePlay;
 import static hotchemi.android.rate.PreferenceHelper.setAgreeShowDialog;
 import static hotchemi.android.rate.PreferenceHelper.setRemindInterval;
@@ -13,7 +15,15 @@ import static hotchemi.android.rate.Utils.getDialogBuilder;
 
 final class DialogManager {
 
+    private static final int DIALOG_BUTTON_POSITIVE_ID = -1;
+    private static final int DIALOG_BUTTON_NEUTRAL_ID = -3;
+    private static final int DIALOG_BUTTON_NEGATIVE_ID = -2;
+
     private DialogManager() {
+    }
+
+    static Dialog createDialog(final Context context, DialogOptions options){
+        return options.isEnforcingMaterialDialog() ? createMaterial(context, options) : create(context,options);
     }
 
     static Dialog create(final Context context, DialogOptions options) {
@@ -57,6 +67,53 @@ final class DialogManager {
         });
 
         return builder.create();
+    }
+
+    static MaterialDialog createMaterial(final Context context, DialogOptions options) {
+        MaterialDialog.Builder builder = new MaterialDialog.Builder(context);
+
+        builder.content(options.getMessageResId());
+
+        if (options.shouldShowTitle()) builder.title(options.getTitleResId());
+
+        builder.cancelable(options.getCancelable());
+
+        View view = options.getView();
+        if (view != null) builder.customView(view, true);
+
+        final OnClickButtonListener listener = options.getListener();
+        builder.positiveText(options.getTextPositiveResId());
+
+        if (options.shouldShowNeutralButton()) {
+            builder.neutralText(options.getTextNeutralResId());
+        }
+
+        builder.negativeText(options.getTextNegativeResId());
+
+
+        builder.callback(new MaterialDialog.ButtonCallback() {
+            @Override
+            public void onPositive(MaterialDialog dialog) {
+                context.startActivity(createIntentForGooglePlay(context));
+                setAgreeShowDialog(context, false);
+                if (listener != null) listener.onClickButton(DIALOG_BUTTON_POSITIVE_ID);
+            }
+
+            @Override
+            public void onNeutral(MaterialDialog dialog) {
+                setRemindInterval(context);
+                if (listener != null) listener.onClickButton(DIALOG_BUTTON_NEUTRAL_ID);
+            }
+
+            @Override
+            public void onNegative(MaterialDialog dialog) {
+                setAgreeShowDialog(context, false);
+                if (listener != null) listener.onClickButton(DIALOG_BUTTON_NEGATIVE_ID);
+            }
+        });
+
+
+        return builder.build();
     }
 
 }
