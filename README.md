@@ -1,7 +1,7 @@
-Android-Rate
+Android-Material-Rate
 ============
 
-Android-Rate is a library to help you promote your android app by prompting users to rate the app after using it for a few days.
+Android-Material-Rate is a library to help you promote your android app by prompting users to rate the app after using it for a few days.
 
 ![screen shot](http://i.gyazo.com/286342ba215a515f2f443a7ce996cc92.gif)
 
