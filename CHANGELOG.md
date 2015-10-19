@@ -1,4 +1,6 @@
 # ChangeLog
+- 2015/10/19 0.5.6 release.
+    - Publish to Bintray
 - 2015/10/19 0.5.5 release.
     - Forked from http://hotchemi.github.io/Android-Rate
     - Add `AppRate.setEnforcingMaterialDialog`.

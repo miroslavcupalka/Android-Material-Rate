@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 //apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 22
@@ -22,4 +23,14 @@ dependencies {
 }
 
 
-apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
+//./gradlew clean build bintrayUpload -PbintrayUser=BINTRAY_USERNAME -PbintrayKey=BINTRAY_KEY -PdryRun=false
+publish {
+    userOrg = 'miroslavcupalka'
+    groupId = 'com.miroslavcupalka'
+    artifactId = 'Android-Material-Rate'
+    version = '0.5.6'
+    description = 'Library for Android applications, which provides rating material dialog.'
+    website = 'https://github.com/miroslavcupalka/Android-Material-Rate'
+    issueTracker = "https://github.com/miroslavcupalka/Android-Material-Rate/issues"
+    repository = "https://github.com/miroslavcupalka/Android-Material-Rate.git"
+}
