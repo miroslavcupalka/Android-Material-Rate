@@ -14,9 +14,17 @@ Android-Rate is a library to help you promote your android app by prompting user
 You can download from maven central.
 
 ```groovy
-dependencies {
-  compile 'com.github.miroslavcupalka:android-material-rate:0.5.5'
+
+repositories {
+    maven {
+        url "https://dl.bintray.com/miroslavcupalka/mave"
+    }
 }
+
+dependencies {
+     compile(group: 'com.miroslavcupalka', name: 'Android-Material-Rate', version: '0.5.6', ext: 'aar')
+}
+
 ```
 
 ## Sample
